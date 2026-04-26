@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8"/>
@@ -121,22 +122,108 @@ footer{background:var(--ink);padding:2rem 4rem;display:flex;justify-content:spac
 @keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity 0.7s ease,transform 0.7s ease;}
 .reveal.visible{opacity:1;transform:translateY(0);}
+
+/* hamburger */
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none;}
+.nav-hamburger span{display:block;width:22px;height:2px;background:var(–ink);border-radius:2px;transition:all 0.3s;}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-hamburger.open span:nth-child(2){opacity:0;}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.nav-mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:var(–parchment);z-index:199;flex-direction:column;justify-content:center;align-items:center;gap:2.5rem;}
+.nav-mobile-menu.open{display:flex;}
+.nav-mobile-menu a{font-family:‘Playfair Display’,serif;font-size:2rem;font-weight:700;color:var(–ink);text-decoration:none;letter-spacing:-0.02em;}
+.nav-mobile-menu a:hover{color:var(–pink);}
+
+/* ── TABLET (max 900px) ── */
 @media(max-width:900px){
-  nav{padding:1rem 1.5rem;}.nav-links{display:none;}
-  #hero{padding:7rem 1.5rem 4rem;}.hero-handwritten-top{left:1.5rem;top:7rem;}
-  .hero-big-name{font-size:clamp(2.8rem,10vw,5rem);margin-top:5rem;white-space:normal;}
-  .hero-bottom-row{flex-direction:column;align-items:flex-start;gap:1rem;}.hero-tagline{text-align:left;}
-  #about,#work,#campaign,#content,#tools,#contact{padding:5rem 1.5rem;}
-  .about-grid{grid-template-columns:1fr;gap:3rem;}
-  .work-entry{grid-template-columns:1fr;gap:1.2rem;}.work-metric{text-align:left;}
-  .campaign-inner{grid-template-columns:1fr;gap:3rem;}
-  .content-grid{grid-template-columns:1fr 1fr;}
-  .tools-inner{grid-template-columns:1fr;gap:2rem;}
-  .contact-inner{grid-template-columns:1fr;gap:3rem;}
-  footer{flex-direction:column;gap:0.5rem;text-align:center;padding:2rem 1.5rem;}
+nav{padding:1rem 1.5rem;}
+.nav-links{display:none;}
+.nav-hamburger{display:flex;}
+
+#hero{padding:6rem 1.5rem 4rem;min-height:100svh;}
+.hero-handwritten-top{left:1.5rem;top:6.5rem;font-size:1rem;}
+.hero-big-name{font-size:clamp(2.6rem,9vw,4.5rem);margin-top:4.5rem;white-space:normal;line-height:1.05;}
+.hero-bottom-row{flex-direction:column;align-items:flex-start;gap:1rem;margin-top:1.5rem;}
+.hero-tagline{text-align:left;font-size:1rem;max-width:100%;}
+.hero-role{font-size:0.95rem;}
+
+#about,#work,#content,#tools,#contact{padding:4rem 1.5rem;}
+#campaign,#campaign2{padding:4rem 1.5rem;}
+
+.about-grid{grid-template-columns:1fr;gap:2.5rem;}
+.about-note-card{transform:none;}
+.about-heading{font-size:clamp(1.8rem,6vw,2.6rem);}
+
+.sec-title{font-size:clamp(2rem,7vw,3rem);}
+
+.work-entry{grid-template-columns:1fr;gap:1rem;padding:2rem 1.5rem;}
+.work-num{font-size:1.8rem;}
+.work-brand{font-size:1.2rem;}
+.work-metric{text-align:left;margin-top:0.5rem;}
+.metric-big{font-size:1.8rem;}
+
+.campaign-inner{grid-template-columns:1fr;gap:2rem;}
+.campaign-title{font-size:clamp(2.2rem,8vw,3.5rem);margin-bottom:1.2rem;}
+.campaign-body{font-size:0.95rem;}
+.campaign-right{flex-direction:row;flex-wrap:wrap;gap:1rem;}
+.cstat{flex:1;min-width:140px;padding:1.5rem;transform:none!important;}
+.cstat-num{font-size:2.2rem;}
+
+#campaign2 .campaign-right{flex-direction:row;flex-wrap:wrap;}
+#campaign2 .cstat{transform:none!important;}
+
+.content-grid{grid-template-columns:1fr 1fr;gap:1rem;}
+.ccrd{transform:none!important;padding:1.5rem;}
+
+.tools-inner{grid-template-columns:1fr;gap:1.5rem;}
+
+.contact-inner{grid-template-columns:1fr;gap:2.5rem;}
+.contact-headline{font-size:clamp(2.5rem,9vw,4rem);}
+.crow-val{font-size:0.95rem;}
+
+footer{flex-direction:column;gap:0.5rem;text-align:center;padding:2rem 1.5rem;}
 }
-@media(max-width:580px){.content-grid{grid-template-columns:1fr;}}
+
+/* ── MOBILE (max 480px) ── */
+@media(max-width:480px){
+#hero{padding:5.5rem 1.2rem 3rem;}
+.hero-handwritten-top{font-size:0.9rem;left:1.2rem;}
+.hero-big-name{font-size:clamp(2.2rem,11vw,3.2rem);}
+
+#about,#work,#content,#tools,#contact{padding:3rem 1.2rem;}
+#campaign,#campaign2{padding:3rem 1.2rem;}
+
+.about-heading{font-size:1.7rem;}
+.about-body{font-size:0.95rem;}
+.about-note-card{padding:1.5rem;}
+
+.work-entry{padding:1.5rem 1.2rem;}
+.work-brand{font-size:1.1rem;}
+.work-desc{font-size:0.88rem;}
+.work-tags{gap:0.35rem;}
+.wtag{font-size:0.65rem;padding:0.25rem 0.6rem;}
+
+.campaign-title{font-size:clamp(2rem,10vw,3rem);}
+.campaign-body{font-size:0.9rem;line-height:1.7;}
+.campaign-right{flex-direction:column;}
+.cstat{min-width:unset;width:100%;}
+.outcome-line{font-size:0.82rem;}
+
+.content-grid{grid-template-columns:1fr;}
+.ccrd{padding:1.2rem;}
+
+.tools-cloud{gap:0.5rem;}
+.titem{font-size:0.78rem;padding:0.4rem 0.8rem;}
+
+.contact-headline{font-size:clamp(2.2rem,10vw,3rem);}
+.crow{padding:1.2rem 0;}
+.crow-val{font-size:0.88rem;}
+.crow-icon{width:55px;font-size:0.85rem;}
+
+.hero-scroll-hint{display:none;}
+}
 </style>
+
 </head>
 <body>
 <nav>
@@ -148,7 +235,17 @@ footer{background:var(--ink);padding:2rem 4rem;display:flex;justify-content:spac
     <li><a href="#content">Content</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <button class="nav-hamburger" aria-label="Menu" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="nav-mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#work" onclick="closeMenu()">Work</a>
+  <a href="#campaign" onclick="closeMenu()">Campaign</a>
+  <a href="#content" onclick="closeMenu()">Content</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
 <section id="hero">
   <div class="hero-handwritten-top">Hi. Since you're new here &#10022;<span>let me be your tour guide.</span></div>
   <h1 class="hero-big-name">Debashrita<span class="outline-name">Sen</span></h1>
@@ -195,127 +292,104 @@ footer{background:var(--ink);padding:2rem 4rem;display:flex;justify-content:spac
   </div>
   <div class="work-list">
 
-    <!-- 01 Burger Bae -->
-    <div class="work-entry reveal">
-      <div class="work-num">01</div>
-      <div>
-        <div class="work-brand">Burger Bae</div>
-        <div class="work-location">Kolkata, India &middot; Jul 2025 to Present</div>
-        <div class="work-type">Social Media Manager &middot; D2C Clothing Brand</div>
-        <div class="work-desc"><ul>
-          <li>Managed end-to-end Instagram presence for Burger Bae Clothing, covering content creation, captions, posting, DM management, and community engagement.</li>
-          <li>Owned ad campaign strategy from brief to execution, coordinating with the performance agency on creative direction, campaign structuring, and optimisation, contributing to a 13% improvement in overall ROI within a single month (2.9 to 3.3).</li>
-          <li>Tracked and supported campaign performance across META Ads (ROAS 3.45x) and Google Ads (ROAS 3.30x).</li>
-          <li>Led influencer outreach and coordination, identifying relevant creators and managing end-to-end collaboration logistics.</li>
-          <li>Managed Instagram and LinkedIn for founder Janvi Sikaria's personal brand, overseeing content planning and post-production.</li>
-          <li>Conducted primary research and therapist interviews to support the launch of Janvi's therapy and coaching program.</li>
-          <li>Designed the program's digital tier structure from concept and market research through to pricing strategy.</li>
-          <li>Guided the web development process, providing creative direction on layout, motion graphics, and brand-aligned design decisions.</li>
-        </ul></div>
-        <div class="work-tags">
-          <span class="wtag">Instagram</span><span class="wtag">META Ads</span><span class="wtag">Google Ads</span><span class="wtag">Influencer</span><span class="wtag">Personal Brand</span><span class="wtag">Graphic Design</span><span class="wtag">Web Creative</span><span class="wtag">Community Management</span>
-        </div>
-      </div>
-      <div class="work-metric">
-        <div class="metric-big">3.45<span>x</span></div>
-        <div class="metric-sub">META ROAS</div>
-        <div class="metric-extra">+13% ROI in one month<br>Google Ads 3.30x ROAS</div>
-      </div>
+```
+<!-- 01 Burger Bae -->
+<div class="work-entry reveal">
+  <div class="work-num">01</div>
+  <div>
+    <div class="work-brand">Burger Bae</div>
+    <div class="work-location">Kolkata, India &middot; Jul 2025 to Present</div>
+    <div class="work-type">Social Media Manager &middot; D2C Clothing Brand</div>
+    <div class="work-desc"><ul>
+      <li>Managed end-to-end Instagram presence for Burger Bae Clothing, covering content creation, captions, posting, DM management, and community engagement.</li>
+      <li>Owned ad campaign strategy from brief to execution, coordinating with the performance agency on creative direction, campaign structuring, and optimisation, contributing to a 13% improvement in overall ROI within a single month (2.9 to 3.3).</li>
+      <li>Tracked and supported campaign performance across META Ads (ROAS 3.45x) and Google Ads (ROAS 3.30x).</li>
+      <li>Led influencer outreach and coordination, identifying relevant creators and managing end-to-end collaboration logistics.</li>
+      <li>Managed Instagram and LinkedIn for founder Janvi Sikaria's personal brand, overseeing content planning and post-production.</li>
+      <li>Conducted primary research and therapist interviews to support the launch of Janvi's therapy and coaching program.</li>
+      <li>Designed the program's digital tier structure from concept and market research through to pricing strategy.</li>
+      <li>Guided the web development process, providing creative direction on layout, motion graphics, and brand-aligned design decisions.</li>
+    </ul></div>
+    <div class="work-tags">
+      <span class="wtag">Instagram</span><span class="wtag">META Ads</span><span class="wtag">Google Ads</span><span class="wtag">Influencer</span><span class="wtag">Personal Brand</span><span class="wtag">Graphic Design</span><span class="wtag">Web Creative</span><span class="wtag">Community Management</span>
     </div>
+  </div>
+  <div class="work-metric">
+    <div class="metric-big">3.45<span>x</span></div>
+    <div class="metric-sub">META ROAS</div>
+    <div class="metric-extra">+13% ROI in one month<br>Google Ads 3.30x ROAS</div>
+  </div>
+</div>
 
-    <!-- 02 WhipMantra 4.0 — NEW -->
-    <div class="work-entry reveal">
-      <div class="work-num">02</div>
-      <div>
-        <div class="work-brand">WhipMantra 4.0</div>
-        <div class="work-location">Kolkata, India &middot; Event Campaign</div>
-        <div class="work-type">Influencer Campaign Lead &middot; Event</div>
-        <div class="work-desc"><ul>
-          <li>Led end-to-end influencer campaign execution within a sub-30-day timeline, independently managing the full cycle post initial sourcing phase.</li>
-          <li>Sourced and shortlisted 50+ relevant influencers aligned with brand goals, handling outreach, negotiations, and onboarding within budget.</li>
-          <li>Created and communicated clear content briefs covering Reels and story reposts, aligning influencer output with event timelines and on-ground flow.</li>
-          <li>Tracked execution in real time to ensure timely and accurate content delivery, managing all follow-ups and coordination end-to-end.</li>
-          <li>Delivered the campaign ahead of schedule with 100% compliance on deliverables and deadlines.</li>
-        </ul></div>
-        <div class="work-tags">
-          <span class="wtag">Influencer Marketing</span><span class="wtag">Campaign Management</span><span class="wtag">Content Briefs</span><span class="wtag">Reels</span><span class="wtag">Event</span><span class="wtag">Outreach</span><span class="wtag">Negotiation</span>
-        </div>
-      </div>
-      <div class="work-metric">
-        <div class="metric-big">50<span>+</span></div>
-        <div class="metric-sub">Influencers sourced</div>
-        <div class="metric-extra">Delivered ahead<br>of schedule &middot; 100% compliance</div>
-      </div>
+<!-- 02 Lead Height -->
+<div class="work-entry reveal">
+  <div class="work-num">02</div>
+  <div>
+    <div class="work-brand">Lead Height</div>
+    <div class="work-location">Kolkata, India &middot; Jan 2025 to Jun 2025</div>
+    <div class="work-type">Social Media Marketing Associate &middot; Agency</div>
+    <div class="work-desc"><ul>
+      <li>Managed META ad campaigns across multiple client accounts spanning diverse niches including jewellery, hair salons, preschools, and home decor, working with brands such as Jawed Habib, Raffs, and Kangaroo Kids, achieving an overall ROAS of 7.37x across a 6-month tenure.</li>
+      <li>Served as the primary point of contact for client communication, handling campaign updates, strategy discussions, and feedback end-to-end.</li>
+      <li>Executed on-ground content shoots for client brands, supporting content capture for social media and ad creatives.</li>
+      <li>Produced graphic design assets across all client accounts, ensuring brand-consistent visuals for both paid campaigns and organic content.</li>
+    </ul></div>
+    <div class="work-tags">
+      <span class="wtag">META Ads</span><span class="wtag">UGC</span><span class="wtag">Graphic Design</span><span class="wtag">Client Management</span><span class="wtag">Content Shoots</span>
     </div>
+  </div>
+  <div class="work-metric">
+    <div class="metric-big">7.37<span>x</span></div>
+    <div class="metric-sub">Overall ROAS<br>6-month tenure</div>
+  </div>
+</div>
 
-    <!-- 03 Lead Height -->
-    <div class="work-entry reveal">
-      <div class="work-num">03</div>
-      <div>
-        <div class="work-brand">Lead Height</div>
-        <div class="work-location">Kolkata, India &middot; Jan 2025 to Jun 2025</div>
-        <div class="work-type">Social Media Marketing Associate &middot; Agency</div>
-        <div class="work-desc"><ul>
-          <li>Managed META ad campaigns across multiple client accounts spanning diverse niches including jewellery, hair salons, preschools, and home decor, working with brands such as Jawed Habib, Raffs, and Kangaroo Kids, achieving an overall ROAS of 7.37x across a 6-month tenure.</li>
-          <li>Served as the primary point of contact for client communication, handling campaign updates, strategy discussions, and feedback end-to-end.</li>
-          <li>Executed on-ground content shoots for client brands, supporting content capture for social media and ad creatives.</li>
-          <li>Produced graphic design assets across all client accounts, ensuring brand-consistent visuals for both paid campaigns and organic content.</li>
-        </ul></div>
-        <div class="work-tags">
-          <span class="wtag">META Ads</span><span class="wtag">UGC</span><span class="wtag">Graphic Design</span><span class="wtag">Client Management</span><span class="wtag">Content Shoots</span>
-        </div>
-      </div>
-      <div class="work-metric">
-        <div class="metric-big">7.37<span>x</span></div>
-        <div class="metric-sub">Overall ROAS<br>6-month tenure</div>
-      </div>
+<!-- 03 HBEC -->
+<div class="work-entry reveal">
+  <div class="work-num">03</div>
+  <div>
+    <div class="work-brand">Heliger Borden Education Centre</div>
+    <div class="work-location">Kanpur, India (Remote) &middot; Dec 2023 to Dec 2024</div>
+    <div class="work-type">Social Media Marketing Intern &middot; Education and D2C</div>
+    <div class="work-desc"><ul>
+      <li>Managed social media presence and graphic design for HBEC, handling end-to-end content creation, visual assets, and consistent posting across platforms.</li>
+      <li>Handled social media management and graphic design for Bhabha Public School, a sister venture, ensuring brand-aligned visual communication.</li>
+      <li>Executed META ad campaigns for Swayamvar Marriage Hall, achieving up to 4x ROI, while simultaneously managing graphic design and content needs.</li>
+      <li>Drove end-to-end performance marketing, social media management, and graphic design for Midnight Corvus, a D2C clothing startup, generating up to 6x growth in sales through META campaigns.</li>
+    </ul></div>
+    <div class="work-tags">
+      <span class="wtag">META Ads</span><span class="wtag">D2C</span><span class="wtag">Graphic Design</span><span class="wtag">Social Media</span><span class="wtag">Performance Marketing</span>
     </div>
+  </div>
+  <div class="work-metric">
+    <div class="metric-big">6<span>x</span></div>
+    <div class="metric-sub">Sales growth<br>Midnight Corvus</div>
+    <div class="metric-extra">4x ROI<br>Swayamvar Ads</div>
+  </div>
+</div>
 
-    <!-- 04 HBEC -->
-    <div class="work-entry reveal">
-      <div class="work-num">04</div>
-      <div>
-        <div class="work-brand">Heliger Borden Education Centre</div>
-        <div class="work-location">Kanpur, India (Remote) &middot; Dec 2023 to Dec 2024</div>
-        <div class="work-type">Social Media Marketing Intern &middot; Education and D2C</div>
-        <div class="work-desc"><ul>
-          <li>Managed social media presence and graphic design for HBEC, handling end-to-end content creation, visual assets, and consistent posting across platforms.</li>
-          <li>Handled social media management and graphic design for Bhabha Public School, a sister venture, ensuring brand-aligned visual communication.</li>
-          <li>Executed META ad campaigns for Swayamvar Marriage Hall, achieving up to 4x ROI, while simultaneously managing graphic design and content needs.</li>
-          <li>Drove end-to-end performance marketing, social media management, and graphic design for Midnight Corvus, a D2C clothing startup, generating up to 6x growth in sales through META campaigns.</li>
-        </ul></div>
-        <div class="work-tags">
-          <span class="wtag">META Ads</span><span class="wtag">D2C</span><span class="wtag">Graphic Design</span><span class="wtag">Social Media</span><span class="wtag">Performance Marketing</span>
-        </div>
-      </div>
-      <div class="work-metric">
-        <div class="metric-big">6<span>x</span></div>
-        <div class="metric-sub">Sales growth<br>Midnight Corvus</div>
-        <div class="metric-extra">4x ROI<br>Swayamvar Ads</div>
-      </div>
+<!-- 04 Aashman -->
+<div class="work-entry reveal">
+  <div class="work-num">04</div>
+  <div>
+    <div class="work-brand">Aashman Foundation</div>
+    <div class="work-location">Haryana, India (Remote) &middot; Mar 2021 to Sep 2021</div>
+    <div class="work-type">Social Media Marketing Intern &middot; NGO</div>
+    <div class="work-desc"><ul>
+      <li>Created and scheduled social media content across platforms to amplify the NGO's outreach and mission-driven awareness campaigns.</li>
+      <li>Monitored social media performance metrics and provided insights to support ongoing campaign optimisation.</li>
+      <li>Assisted in the execution of awareness campaigns, contributing to improved online visibility for a non-profit cause.</li>
+    </ul></div>
+    <div class="work-tags">
+      <span class="wtag">Social Media</span><span class="wtag">Content Creation</span><span class="wtag">Analytics</span><span class="wtag">NGO</span>
     </div>
-
-    <!-- 05 Aashman -->
-    <div class="work-entry reveal">
-      <div class="work-num">05</div>
-      <div>
-        <div class="work-brand">Aashman Foundation</div>
-        <div class="work-location">Haryana, India (Remote) &middot; Mar 2021 to Sep 2021</div>
-        <div class="work-type">Social Media Marketing Intern &middot; NGO</div>
-        <div class="work-desc"><ul>
-          <li>Created and scheduled social media content across platforms to amplify the NGO's outreach and mission-driven awareness campaigns.</li>
-          <li>Monitored social media performance metrics and provided insights to support ongoing campaign optimisation.</li>
-          <li>Assisted in the execution of awareness campaigns, contributing to improved online visibility for a non-profit cause.</li>
-        </ul></div>
-        <div class="work-tags">
-          <span class="wtag">Social Media</span><span class="wtag">Content Creation</span><span class="wtag">Analytics</span><span class="wtag">NGO</span>
-        </div>
-      </div>
-      <div class="work-metric">
-        <div class="metric-big" style="font-size:1.3rem;line-height:1.2;">Non<br>Profit</div>
-        <div class="metric-sub">Awareness campaigns<br>across platforms</div>
-      </div>
-    </div>
+  </div>
+  <div class="work-metric">
+    <div class="metric-big" style="font-size:1.3rem;line-height:1.2;">Non<br>Profit</div>
+    <div class="metric-sub">Awareness campaigns<br>across platforms</div>
+  </div>
+</div>
+```
 
   </div>
 </section>
@@ -336,6 +410,28 @@ footer{background:var(--ink);padding:2rem 4rem;display:flex;justify-content:spac
     <div class="campaign-right reveal">
       <div class="cstat"><div class="cstat-num">3 <span>days</span></div><div class="cstat-label">to sell out from launch</div></div>
       <div class="cstat"><div class="cstat-num">Team <span>&#10022;</span></div><div class="cstat-label">creative concept, influencer strategy and execution, a full team effort</div></div>
+    </div>
+  </div>
+</section>
+<section id="campaign2" style="background:var(--cream);padding:7rem 4rem;position:relative;overflow:hidden;">
+  <div style="content:'WM';position:absolute;top:50%;left:-3rem;transform:translateY(-50%);font-family:'Playfair Display',serif;font-weight:900;font-size:clamp(10rem,22vw,20rem);color:rgba(28,25,23,0.03);letter-spacing:-0.05em;pointer-events:none;line-height:1;">
+  </div>
+  <div class="campaign-inner" style="max-width:1100px;margin:0 auto;display:grid;gap:6rem;align-items:center;grid-template-columns:1fr 1fr;">
+    <div class="reveal">
+      <div class="campaign-eyebrow" style="color:var(--pink);">&#10022; campaign spotlight</div>
+      <h2 class="campaign-title" style="color:var(--ink);">Whip<br><span>Mantra</span><br>4.0</h2>
+      <p class="campaign-body" style="color:var(--ink-soft);">An end-to-end influencer campaign for a live automotive event, executed independently within a 30-day window. From sourcing 50+ creators to briefing, onboarding, and tracking every deliverable — the whole campaign ran on tight timelines, a tighter budget, and zero misses. Delivered ahead of schedule with full compliance across the board.</p>
+      <div class="campaign-outcomes">
+        <div class="outcome-line" style="color:var(--ink-soft);"><span class="outcome-dot"></span>50+ influencers sourced, shortlisted, and onboarded within budget</div>
+        <div class="outcome-line" style="color:var(--ink-soft);"><span class="outcome-dot"></span>Content briefs written and communicated for Reels and story reposts</div>
+        <div class="outcome-line" style="color:var(--ink-soft);"><span class="outcome-dot"></span>Influencer content aligned with live event timelines and on-ground flow</div>
+        <div class="outcome-line" style="color:var(--ink-soft);"><span class="outcome-dot"></span>100% compliance on deliverables and deadlines</div>
+        <div class="outcome-line" style="color:var(--ink-soft);"><span class="outcome-dot"></span>Delivered ahead of schedule, managed end-to-end independently</div>
+      </div>
+    </div>
+    <div class="campaign-right reveal">
+      <div class="cstat" style="border-color:rgba(28,25,23,0.12);"><div class="cstat-num" style="color:var(--ink);">50<span>+</span></div><div class="cstat-label" style="color:var(--gray);">influencers sourced in under 30 days</div></div>
+      <div class="cstat" style="background:rgba(232,99,140,0.06);border-color:rgba(232,99,140,0.22);transform:rotate(0.5deg);"><div class="cstat-num" style="color:var(--ink);">100<span>%</span></div><div class="cstat-label" style="color:var(--gray);">compliance · delivered ahead of schedule</div></div>
     </div>
   </div>
 </section>
@@ -397,6 +493,18 @@ footer{background:var(--ink);padding:2rem 4rem;display:flex;justify-content:spac
   <span class="footer-copy">&copy; 2025 &middot; Digital Marketing and Social Media Specialist &middot; Kolkata, India</span>
 </footer>
 <script>
+function toggleMenu(){
+  var btn=document.querySelector('.nav-hamburger');
+  var menu=document.getElementById('mobileMenu');
+  btn.classList.toggle('open');
+  menu.classList.toggle('open');
+  document.body.style.overflow=menu.classList.contains('open')?'hidden':'';
+}
+function closeMenu(){
+  document.querySelector('.nav-hamburger').classList.remove('open');
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.body.style.overflow='';
+}
 var obs=new IntersectionObserver(function(entries){entries.forEach(function(e,i){if(e.isIntersecting){setTimeout(function(){e.target.classList.add('visible');},i*90);obs.unobserve(e.target);}});},{threshold:0.08});
 document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
 var secs=document.querySelectorAll('section[id]');
